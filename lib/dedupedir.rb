@@ -59,6 +59,8 @@ module Dedupedir
 
     puts "END   - #{dir_name}"
 
+    return Total.totals
+
   end
 
   def self.dedupe(files)

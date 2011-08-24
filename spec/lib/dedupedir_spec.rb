@@ -31,6 +31,13 @@ describe "dedupedir.rb" do
     run_script
   end
 
+  it "returns total bytes and files deleted" do
+    f1 = build_test_file('xab.mp3'  ) {|f| f.write('qqqqq') }
+    f2 = build_test_file('xab 9.mp3') {|f| f.write('qqqqq') }
+    f3 = build_test_file('xab 5.mp3') {|f| f.write('qqqqq') }
+    run_script.should == { :size => 10, :number => 2 }
+  end
+
   it "deletes the highest numbered of two otherwise identical files" do
     f1 = build_test_file('xab.mp3'  ,'test1') {|f| f.write('qqqqq') }
     f2 = build_test_file('xab 2.mp3','test1') {|f| f.write('qqqqq') }
