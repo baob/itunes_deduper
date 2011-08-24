@@ -10,6 +10,6 @@ testdir3 = 'C:\Users\suzie\Music\suzies music collection'
 testdir4 = 'C:\Users\suzie\Music\suzies music collection\Various Artists\Guitar Adagios'
 
 
-Dedupedir.one_dir(testdir3)
+totals = Dedupedir.one_dir(testdir3)
 
-puts "\nTotals: #{Dedupedir::Total.totals.inspect}"
+puts "\nTotals: #{totals.inspect}"
