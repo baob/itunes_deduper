@@ -2,11 +2,8 @@ require 'ftools'
 require 'pp'
 
 module Dedupedir
-  # ents = Dir.entries('C:\Users\suzie\Music\suzies music collection\Adam Holzman\Antonio Lauro_ Venezuelan Waltzes For Gu')
 
-  # puts ents.inspect
-
-  class Total
+  class Totaler
     
     def initialize
       @size  = 0
@@ -24,7 +21,7 @@ module Dedupedir
       
   end
 
-  def self.one_dir(dir_name, totaler=Total.new)
+  def self.one_dir(dir_name, totaler=Totaler.new)
     puts "START - #{dir_name}"
 
     files = []

@@ -1,7 +1,3 @@
-# ents = Dir.entries('C:\Users\suzie\Music\suzies music collection\Adam Holzman\Antonio Lauro_ Venezuelan Waltzes For Gu')
-
-# puts ents.inspect
-
 require 'lib/dedupedir'
 
 testdir1 = 'C:\Users\suzie\Music\suzies music collection\Adam Holzman\Antonio Lauro_ Venezuelan Waltzes For Gu'
