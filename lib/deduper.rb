@@ -1,7 +1,7 @@
 require 'ftools'
 require 'pp'
 
-module Dedupedir
+module Deduper
 
   class Totaler
     

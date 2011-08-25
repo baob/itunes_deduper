@@ -1,13 +1,13 @@
 require 'ftools'
 require 'fileutils'
-require File.dirname(__FILE__) + '/../../lib/dedupedir'
-describe "dedupedir.rb" do
+require File.dirname(__FILE__) + '/../../lib/deduper'
+describe "deduper.rb" do
 
   before(:all) do
     @test_dir = File.dirname(__FILE__) + '/../../tmp'
 
     def run_script
-      Dedupedir.dedupe(@test_dir)
+      Deduper.dedupe(@test_dir)
     end
 
     def build_test_file(name,path='')
