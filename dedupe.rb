@@ -6,6 +6,6 @@ testdir3 = 'C:\Users\suzie\Music\suzies music collection'
 testdir4 = 'C:\Users\suzie\Music\suzies music collection\Various Artists\Guitar Adagios'
 
 
-totals = Dedupedir.one_dir(testdir3)
+totals = Dedupedir.dedupe(testdir3)
 
 puts "\nTotals: #{totals.inspect}"

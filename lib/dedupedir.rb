@@ -21,7 +21,7 @@ module Dedupedir
       
   end
 
-  def self.one_dir(dir_name, totaler=Totaler.new)
+  def self.dedupe(dir_name, totaler=Totaler.new)
     puts "START - #{dir_name}"
 
     files = []
@@ -46,7 +46,7 @@ module Dedupedir
     end
 
     dirs.each do |dir|
-      one_dir(dir, totaler)
+      dedupe(dir, totaler)
     end
 
 

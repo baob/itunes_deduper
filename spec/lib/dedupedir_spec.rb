@@ -7,7 +7,7 @@ describe "dedupedir.rb" do
     @test_dir = File.dirname(__FILE__) + '/../../tmp'
 
     def run_script
-      Dedupedir.one_dir(@test_dir)
+      Dedupedir.dedupe(@test_dir)
     end
 
     def build_test_file(name,path='')
@@ -29,13 +29,6 @@ describe "dedupedir.rb" do
   it "opens the expected directory" do
     Dir.should_receive(:foreach).with(@test_dir).and_return([])
     run_script
-  end
-
-  it "returns total bytes and files deleted" do
-    f1 = build_test_file('xab.mp3'  ) {|f| f.write('qqqqq') }
-    f2 = build_test_file('xab 9.mp3') {|f| f.write('qqqqq') }
-    f3 = build_test_file('xab 5.mp3') {|f| f.write('qqqqq') }
-    run_script.should == { :size => 10, :number => 2 }
   end
 
   it "deletes the highest numbered of two otherwise identical files" do
