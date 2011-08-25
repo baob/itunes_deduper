@@ -50,7 +50,7 @@ module Dedupedir
     end
 
 
-    dedupe(files, totaler)
+    dedupe_files(files, totaler)
 
   #  puts "need to de-dup #{files.size} files with sizes"
   #  files.each do |file_info|
@@ -63,7 +63,7 @@ module Dedupedir
 
   end
 
-  def self.dedupe(files, totaler)
+  def self.dedupe_files(files, totaler)
   #  puts "de-duping #{files.size} files"
     return if files.size < 2
     sizes = files.map{ |file| file[:size] }
