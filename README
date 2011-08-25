@@ -1,0 +1,16 @@
+== Itunes Deduper
+
+It seems a not uncommon scenario for Itunes music collections to get messed up as follows
+
+1. Itunes loses entries from it's library (it's XML index of music files)
+2. User drags and drops music collection back onto itunes app to repair the library
+3. Itunes makes a second copy of the music files as it updates it's library
+
+I'm sure there are ways of avoiding this problem in the 1st place, but it happens
+and this is a simple script to solve the issue of the duplicated files, not the 
+duplications in the library.
+
+Because it's written for precisely this scenario, no attempt is made to compare
+music files across drectories, only within one directory.
+
+It still needs some work (e.g. directories are hard-coded in the base script).
