@@ -18,3 +18,10 @@ Then /^show me the stdout$/ do
     puts "------------------------------ stdout: END"
 end
 
+Given /^a file named "([^"]*)" which is a copy of "([^"]*)"$/ do |file2, file1|
+  in_current_dir do
+    FileUtils.cp file1, file2
+  end
+  And "a file named \"#{file2}\" should exist"
+end
+

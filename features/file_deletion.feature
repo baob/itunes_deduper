@@ -8,21 +8,37 @@ Feature: file deletion
     Given a directory named "itunes_features"
     And I cd to "itunes_features"
 
-  @puts-dir
-  @puts-cmd
-  @puts-env
-  Scenario: deleteing in root directory
-    Given a file named "itunes_features/track_1_by_x.mp3" with:
+  Scenario: deleting in root directory
+    Given a file named "track_1_by_x.mp3" with:
        """
        plinky-plonk
        """
-    And a file named "itunes_features/track_1_by_x 2.mp3" with:
-       """
-       plinky-plonk
-       """
+    And a file named "track_1_by_x 2.mp3" which is a copy of "track_1_by_x.mp3"
     When I run "dedupe"
     Then the stderr should be empty
-    Then a file named "itunes_features/track_1_by_x.mp3" should exist
-    And a file named "itunes_features/track_1_by_x 2.mp3" should not exist
+    And a file named "track_1_by_x.mp3" should exist
+    And a file named "track_1_by_x 2.mp3" should not exist
+
+  Scenario: deleting in sub directory
+    Given a file named "sub/track_1_by_x.mp3" with:
+       """
+       plinky-plonk
+       """
+    And a file named "sub/track_1_by_x 2.mp3" which is a copy of "sub/track_1_by_x.mp3"
+    When I run "dedupe"
+    Then the stderr should be empty
+    And a file named "sub/track_1_by_x.mp3" should exist
+    And a file named "sub/track_1_by_x 2.mp3" should not exist
+
+  Scenario: deleting in deep sub directory
+    Given a file named "sub1/sub2/sub3/sub4/track_1_by_x.mp3" with:
+       """
+       plinky-plonk
+       """
+    And a file named "sub1/sub2/sub3/sub4/track_1_by_x 2.mp3" which is a copy of "sub1/sub2/sub3/sub4/track_1_by_x.mp3"
+    When I run "dedupe"
+    Then the stderr should be empty
+    And a file named "sub1/sub2/sub3/sub4/track_1_by_x.mp3" should exist
+    And a file named "sub1/sub2/sub3/sub4/track_1_by_x 2.mp3" should not exist
 
 
