@@ -1,12 +1,12 @@
 describe "dedupe.rb" do
 
+  def run_script
+    puts "about to run  #{@dedupe_script}"
+    load @dedupe_script
+  end
+
   before(:all) do
     @dedupe_script = File.dirname(__FILE__) + '/../dedupe.rb'
-
-    def run_script
-      puts "about to run  #{@dedupe_script}"
-      load @dedupe_script
-    end
   end
 
   it "opens the expected directory" do

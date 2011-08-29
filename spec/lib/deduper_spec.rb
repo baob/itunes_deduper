@@ -3,19 +3,19 @@ require 'fileutils'
 require File.dirname(__FILE__) + '/../../lib/deduper'
 describe "deduper.rb" do
 
+  def run_script
+    Deduper.dedupe(@test_dir)
+  end
+
+  def build_test_file(name,path='')
+    FileUtils.mkdir_p File.join(@test_dir,path) if  path
+    full_name = File.join(@test_dir,path,name)
+    File.open(full_name, 'w') {|f| yield f }
+    full_name
+  end
+
   before(:all) do
     @test_dir = File.dirname(__FILE__) + '/../../tmp'
-
-    def run_script
-      Deduper.dedupe(@test_dir)
-    end
-
-    def build_test_file(name,path='')
-      FileUtils.mkdir_p File.join(@test_dir,path) if  path
-      full_name = File.join(@test_dir,path,name)
-      File.open(full_name, 'w') {|f| yield f }
-      full_name
-    end
   end
 
   before(:each) do
