@@ -7,10 +7,11 @@ describe "dedupe.rb" do
 
   before(:all) do
     @dedupe_script = File.dirname(__FILE__) + '/../dedupe.rb'
+    @del_dir = File.expand_path(File.dirname(__FILE__) + '/..')
   end
 
   it "opens the expected directory" do
-    Dir.should_receive(:foreach).with('C:\Users\suzie\Music\suzies music collection').and_return([])
+    Dir.should_receive(:foreach).with(@del_dir).and_return([])
     r = run_script
     puts "script returned #{r}"
   end
