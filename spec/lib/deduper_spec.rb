@@ -98,6 +98,14 @@ describe "deduper.rb" do
     File.should exist(f2)
   end
 
+  it "does not delete when the files differ by a numeric suffix, but prefix doesnt match" do
+    f1 = build_test_file('xab.mp3'  ,'test1') {|f| f.write('qqqqq') }
+    f2 = build_test_file('xyz 2.mp3','test1') {|f| f.write('qqqqq') }
+    run_script
+    File.should exist(f1)
+    File.should exist(f2)
+  end
+
   it "does not delete when the files do not have identical file types" do
     f1 = build_test_file('xab.mp3'  ,'test1') {|f| f.write('qqqqq') }
     f2 = build_test_file('xab 2.txt','test1') {|f| f.write('qqqqq') }

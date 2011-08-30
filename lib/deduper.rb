@@ -106,7 +106,7 @@ module Deduper
 
   #  puts "about to test for size"
 
-    return unless file1[:size] == file2[:size]
+    return unless file1[:size] == file2[:size] # not neccessary for algorithmic correctness, but a shortcut for performance
 
   #  puts "dedupe_ordered_pair - comparing #{file1[:base]} with #{file2[:base]} - type and size identical"
 
