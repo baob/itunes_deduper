@@ -2,7 +2,6 @@ Feature: file deletion
 
   In order to clean up extraneous files in my iTunes folders
   I want to delete files that are identical apart from an appended number
-  So that I save disk space
 
   Background: 
     Given a directory named "itunes_features"
